@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: mrt_localbike__product_performance
+    description: '{{ doc("mrt_localbike__product_performance") }}'
+    columns:
+      - name: product_id
+        description: id that identify the product
+      - name: product_name
+        description: name of the product
+      - name: category_name
+        description: category of product
+      - name: brand_name
+        description: brand of the product
+      - name: product_quantity_stock
+        description: quantity of product in stock
+      - name: product_quantity_sold
+        description: quantity of product sold
+      - name: nb_products_per_orders
+        description: number of products per orders
+      - name: total_order_product_amount
+        description: amount of the product per order
+      - name: avg_order_value_per_product
+        description: average order value of the product
+      - name: sell_through_rate
+        description: percentage of product sold among the product in stock
