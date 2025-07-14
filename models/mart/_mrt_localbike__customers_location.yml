@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: mrt_localbike__customers_location
+    description: '{{ doc("mrt_localbike__customers_location") }}'
+    columns:
+      - name: customer_city
+        description: city where the customer is living
+      - name: customer_state_code
+        description: State code where the customer is living
+      - name: nb_customer
+        description: Distinct number of customers
