@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: int_localbike__orders
+    description: This model contains all the details concerning the orders
+    columns:
+      - name: product_id_sold
+        description: "Primary key, unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        description: "Foreign Key, linking orders with store informations"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_localbike__stores')
+              field: store_id
+      - name: staff_id
+        description: "Foreign Key, linking orders with staff informations"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_localbike__stores')
+              field: staff_id
