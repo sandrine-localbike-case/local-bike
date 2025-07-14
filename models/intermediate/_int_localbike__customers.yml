@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: int_localbike__customers
+    description: This model contains the location of localbike's customers

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_localbike__products
+    description: This model contains all the details concerning the products
+    columns:
+      - name: product_id
+        description: "Primary key, unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        description: "Foreign Key, linking products with store informations"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_localbike__stores')
+              field: store_id
