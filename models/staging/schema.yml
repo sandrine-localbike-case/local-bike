@@ -1,0 +1,147 @@
+version: 2
+
+models:
+  - name: stg_localbike__brands
+    description: This model contains the brand informations
+
+    columns:
+      - name: brand_id
+        description: "Primary key : Unique identifier for each brand"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_localbike__categories
+    description: This model contains the product categories informations
+
+    columns:
+      - name: category_id
+        description: "Primary key : Unique identifier for each product category"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_localbike__customers
+    description: This model contains the customer informations
+
+    columns:
+      - name: customer_id
+        description: "Primary key : Unique identifier for each customer"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_localbike__orderitems
+    description: This model contains the order at item level informations
+
+    columns:
+      - name: order_item_id
+        description: "Primary key : Unique identifier for each order at item level"
+        tests:
+          - unique
+          - not_null
+        
+      - name: order_id
+        description: "Foreign key : Linking the items ordered to the orders informations"
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Foreign key : Linking the items ordered to the product informations"
+        tests:
+          - not_null
+
+  - name: stg_localbike__orders
+    description: This model contains the order informations
+    config:
+      partition_by : "order_date"
+
+    columns:
+      - name: order_id
+        description: "Primary key : Unique identifier for each order"
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "Foreign key : Linking the orders to the customer informations"
+        tests:
+          - not_null
+
+      - name: store_id
+        description: "Foreign key : Linking the orders to the store informations"
+        tests:
+          - not_null
+
+      - name: staff_id
+        description: "Foreign key : Linking the orders to the staff informations"
+        tests:
+          - not_null
+
+  - name: stg_localbike__products
+    description: This model contains the product informations
+
+    columns:
+      - name: product_id
+        description: "Primary key : Unique identifier for each product"
+        tests:
+          - unique
+          - not_null
+
+      - name: brand_id
+        description: "Foreign key : Linking the products to the brand informations"
+        tests:
+          - not_null
+
+      - name: category_id
+        description: "Foreign key : Linking the products to the category informations"
+        tests:
+          - not_null
+
+  - name: stg_localbike__staffs
+    description: This model contains the staff informations
+
+    columns:
+      - name: staff_id
+        description: "Primary key : Unique identifier for each employee"
+        tests:
+          - unique
+          - not_null
+
+      - name: store_id
+        description: "Foreign key : Linking the staff to the stores informations"
+        tests:
+          - not_null
+
+  - name: stg_localbike__stocks
+    description: This model contains the staff informations
+
+    columns:
+      - name: store_product_id
+        description: "Primary key : Unique identifier for each store at product level"
+        tests:
+          - unique
+          - not_null
+
+      - name: store_id
+        description: "Foreign key : Linking the stock to the stores informations"
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "Foreign key : Linking the sotck to the product informations"
+        tests:
+          - not_null
+
+  - name: stg_localbike__stores
+    description: This model contains the stores informations
+
+    columns:
+      - name: store_id
+        description: "Primary key : Unique identifier for each store"
+        tests:
+          - unique
+          - not_null
+
+
+
